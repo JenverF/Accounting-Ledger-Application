@@ -7,8 +7,10 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class TransactionManager {
+    static Scanner scasnner = new Scanner(System.in);
     public static List<Transaction> loadTransactions() {
         List<Transaction> transactions = new ArrayList<>();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
