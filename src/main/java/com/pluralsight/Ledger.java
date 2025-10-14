@@ -24,10 +24,10 @@ public class Ledger {
                     TransactionManager.displayEntries(transactions);
                     break;
                 case "D":
-
+                    TransactionManager.displayTransactions(transactions, true);
                     break;
                 case "P":
-
+                    TransactionManager.displayTransactions(transactions, false);
                     break;
                 case "R":
                     // displayReports();

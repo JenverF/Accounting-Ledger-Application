@@ -47,4 +47,14 @@ public class TransactionManager {
             System.out.println(t);
         }
     }
+
+    public static void displayTransactions(List<Transaction> transactions, boolean isPositive) {
+        for(Transaction t : transactions) {
+            if(isPositive && t.getAmount() > 0) {
+                System.out.println(t);
+            } else if(!isPositive && t.getAmount() < 0) {
+                System.out.println(t);
+            }
+        }
+    }
 }
