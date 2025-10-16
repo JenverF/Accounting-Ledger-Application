@@ -57,4 +57,16 @@ public class TransactionManager {
             }
         }
     }
+
+    public static List<Transaction> searchByVendor(List<Transaction> transactions, String vendor) {
+        List<Transaction> filteredReports = new ArrayList<>();
+
+        for(Transaction t : transactions) {
+            if(t.getVendor().toLowerCase().contains(vendor.toLowerCase())) {
+                filteredReports.add(t);
+            }
+        }
+        return filteredReports;
+    }
+
 }

@@ -34,6 +34,14 @@ public class Report {
 
                     break;
                 case "5":
+                    System.out.println("Enter Vendor name to search: ");
+                    String vendorToSearchBy = scanner.nextLine();
+                    List<Transaction> matchesVendor = TransactionManager.searchByVendor(transactions, vendorToSearchBy);
+                    System.out.println("Showing all transactions with vendor name \"" + vendorToSearchBy + "\":");
+                    TransactionManager.displayEntries(matchesVendor);
+                    if(matchesVendor.isEmpty()) {
+                        System.out.println("No transaction(s) from this Vendor.\n");
+                    }
 
                     break;
                 case "0":
