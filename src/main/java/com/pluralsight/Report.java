@@ -39,9 +39,20 @@ public class Report {
                     TransactionManager.displayEntries(transactionsLastMonth);
                     break;
                 case "3":
+                    System.out.println("Here are this year's transactions: ");
+                    LocalDate thisYear = LocalDate.now();
+                    LocalDate firstMonthOfYear = LocalDate.of(thisYear.getYear(), 1, 1);
+                    List<Transaction> transactionsThisYear = TransactionManager.searchByDate(transactions, firstMonthOfYear, thisYear);
+                    TransactionManager.displayEntries(transactionsThisYear);
 
                     break;
                 case "4":
+                    System.out.println("Here are last year's transactions: ");
+                    LocalDate thisLastYear = LocalDate.now();
+                    LocalDate startLastYear = LocalDate.of(thisLastYear.getYear() - 1, 1, 1);
+                    LocalDate endLastYear = LocalDate.of(thisLastYear.getYear() -1, 12, 31);
+                    List<Transaction> transactionsLastYear = TransactionManager.searchByDate(transactions, startLastYear, endLastYear);
+                    TransactionManager.displayEntries(transactionsLastYear);
 
                     break;
                 case "5":
