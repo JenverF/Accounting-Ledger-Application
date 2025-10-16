@@ -50,13 +50,22 @@ public class App {
         System.out.println("Please enter vendor: ");
         String vendor = scanner.nextLine();
 
-        System.out.println("Please enter an amount (ex: 100.00): ");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
+        boolean isValid = false;
+        while(!isValid) {
+            System.out.println("Please enter an amount (ex: 100.00): ");
+            try {
+                double amount = scanner.nextDouble();
+                scanner.nextLine();
+                isValid = true;
 
-        if(!isDeposit) amount *= -1;
-        Transaction t = new Transaction(LocalDate.now(), LocalTime.now(), description, vendor, amount);
-        TransactionManager.saveTransaction(t);
-        System.out.println("Transaction saved successfully!");
+                if (!isDeposit) amount *= -1;
+                Transaction t = new Transaction(LocalDate.now(), LocalTime.now(), description, vendor, amount);
+                TransactionManager.saveTransaction(t);
+                System.out.println("Transaction saved successfully!");
+            } catch (Exception e) {
+                System.out.println("Error, not a valid input.");
+                scanner.nextLine();
+            }
+        }
     }
 }
