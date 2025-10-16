@@ -24,9 +24,11 @@ public class Ledger {
                     TransactionManager.displayEntries(transactions);
                     break;
                 case "D":
+                    System.out.println("Here are all the deposits: ");
                     TransactionManager.filterByAmount(transactions, true);
                     break;
                 case "P":
+                    System.out.println("Here are all the payments: ");
                     TransactionManager.filterByAmount(transactions, false);
                     break;
                 case "R":

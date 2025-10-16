@@ -4,12 +4,11 @@ date|time|description|vendor|amount
 2025-01-01|13:54:34|Puzzles|Jackson|1000.00
 2025-02-07|14:29:34|Groceries|Jackson|30.00
 2025-04-06|12:24:34|Valorant skins|Jackson|10.00
-2025-07-30|10:54:52|Games|Jackson|25.25
-2025-10-01|10:42:56|sample text|Phu|100.00
+2025-07-30|10:54:52|Games|Jackson|-25.25
 2025-09-01|13:54:34|One piece|Jackson|1000.00
-2025-09-07|14:29:34|Minecraft|Jackson|30.00
+2025-09-07|14:29:34|Minecraft|Jackson|-30.00
 2025-09-06|12:24:34|Robux|Jackson|10.00
-2025-09-30|10:54:52|Vbucks|Jackson|25.25
+2025-09-30|10:54:52|Vbucks|Jackson|-25.25
 2025-10-01|10:42:56|sample text|Phu|100.00
 2025-10-13|13:23:10|Giving back borrowed money|ZELLE|-123.45
 2025-10-14|13:37:44|Returning borrowed money|Phu|-67.41

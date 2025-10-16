@@ -69,4 +69,14 @@ public class TransactionManager {
         return filteredReports;
     }
 
+    public static List<Transaction> searchByDate(List<Transaction> transactions, LocalDate start, LocalDate end) {
+        List<Transaction> filteredReports = new ArrayList<>();
+
+        for(Transaction t : transactions) {
+            if((t.getDate().isAfter(start) || t.getDate().isEqual(start)) && (t.getDate().isBefore(end) || t.getDate().isEqual(end))) {
+                filteredReports.add(t);
+            }
+        }
+        return filteredReports;
+    }
 }

@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,10 +23,20 @@ public class Report {
             String choice = scanner.nextLine().toUpperCase();
             switch(choice) {
                 case "1":
-
+                    System.out.println("Here are this month's transactions: ");
+                    LocalDate today = LocalDate.now();
+                    LocalDate firstDayOfMonth = LocalDate.of(today.getYear(), today.getMonth(), 1);
+                    List<Transaction> transactionsThisMonth = TransactionManager.searchByDate(transactions, firstDayOfMonth, today);
+                    TransactionManager.displayEntries(transactionsThisMonth);
                     break;
                 case "2":
-
+                    System.out.println("Here are last month's transactions: ");
+                    LocalDate todayDate = LocalDate.now();
+                    LocalDate lastMonth = todayDate.minusMonths(1);
+                    LocalDate startLastMonth = LocalDate.of(lastMonth.getYear(), lastMonth.getMonth(), 1);
+                    LocalDate endLastMonth = LocalDate.of(todayDate.getYear(), todayDate.getMonth(), 1).minusDays(1);
+                    List<Transaction> transactionsLastMonth = TransactionManager.searchByDate(transactions, startLastMonth, endLastMonth);
+                    TransactionManager.displayEntries(transactionsLastMonth);
                     break;
                 case "3":
 
