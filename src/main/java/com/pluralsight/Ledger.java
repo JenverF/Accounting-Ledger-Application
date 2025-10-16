@@ -24,13 +24,16 @@ public class Ledger {
                     TransactionManager.displayEntries(transactions);
                     break;
                 case "D":
-                    TransactionManager.displayTransactions(transactions, true);
+                    TransactionManager.filterByAmount(transactions, true);
                     break;
                 case "P":
-                    TransactionManager.displayTransactions(transactions, false);
+                    TransactionManager.filterByAmount(transactions, false);
                     break;
                 case "R":
-                    // displayReports();
+                    boolean goHome = Report.displayReports();
+                    if(goHome) {
+                        return;
+                    }
                     break;
                 case "H":
                     return;
