@@ -18,12 +18,14 @@ App {
     // Display home screen menu with options
     public static boolean displayHomeScreen() {
         String options = """
-                D) Add Deposit
-                P) Make Payment(Debit)
-                L) Ledger
-                X) Exit""";
-        System.out.println("Welcome to your personal Accounting Tracker!\n" + options);
-        String choice = scanner.nextLine().toUpperCase();
+                What would you like to do?
+                    D) Add Deposit 🍞
+                    P) Make Payment(Debit) 💸‍
+                    L) Ledger 📄
+                    X) Exit  ️✌️☹️
+                Enter choice (D, P, L, X)""";
+        System.out.println("===== \uD83D\uDCB0 Welcome to your personal Accounting Tracker! \uD83D\uDCB0 =====\n" + options);
+        String choice = scanner.nextLine().toUpperCase().trim();
         switch(choice) {
             case "D":
                 addTransaction(true);

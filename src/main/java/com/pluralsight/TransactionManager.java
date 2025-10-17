@@ -46,9 +46,26 @@ public class TransactionManager {
 
     // Displays all the entries in the transactions.csv file
     public static void displayEntries(List<Transaction> transactions) {
+        double totalDeposits = 0;
+        double totalPayments = 0;
+
         for(Transaction t : transactions) {
             System.out.println(t);
+
+            double amount = t.getAmount();
+            if (amount > 0) {
+                totalDeposits += amount;
+            } else {
+                totalPayments += amount;
+            }
         }
+        // Calculates the total deposits, payments, and balance
+        double total = totalDeposits + totalPayments;
+        System.out.printf("""
+            ===== Transaction Summary =====
+                Total Income 💲: $%.2f
+                Total Expenses ➖: $%.2f
+                Total Balance 💰: $%.2f \n""", totalDeposits, totalPayments, total);
     }
 
     // Works with deposits and payments, if it's a deposit it will save it as a positive number, if it's payment, save it as a negative number

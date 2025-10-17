@@ -11,16 +11,17 @@ public class Report {
         List<Transaction> transactions = TransactionManager.loadTransactions();
         while(true) {
             String options = """
-                What do you want to search by:
-                    1) Month to Date
-                    2) Previous Month
-                    3) Year to Date
-                    4) Previous Year
-                    5) Vendor
+                Search by..
+                    1) Month to Date 📅
+                    2) Previous Month ⏮
+                    3) Year to Date 📆
+                    4) Previous Year ⏪
+                    5) Vendor 🔍
                     0) Back - Go back to ledger page
-                H) Home - Go back to home page""";
-            System.out.println("Report options: \n" + options);
-            String choice = scanner.nextLine().toUpperCase();
+                H) Home - Go back to home page
+                Enter (1, 2, 3, 4, 5, 0, H)""";
+            System.out.println("===== Report options ===== \n" + options);
+            String choice = scanner.nextLine().toUpperCase().trim();
             switch(choice) {
                 case "1":
                     monthToDateSearch(transactions);
@@ -67,7 +68,7 @@ public class Report {
 
     // Search by month to date to see all transactions from this month all the way to today
     public static void monthToDateSearch(List<Transaction> transactions) {
-        System.out.println("Here are this month's transactions: ");
+        System.out.println("===== Here are this month's transactions ===== ");
         LocalDate today = LocalDate.now();
         LocalDate firstDayOfMonth = LocalDate.of(today.getYear(), today.getMonth(), 1);
         List<Transaction> transactionsThisMonth = TransactionManager.searchByDate(transactions, firstDayOfMonth, today);
@@ -76,7 +77,7 @@ public class Report {
 
     // Search by previous month to see all transactions from the previous month
     public static void prevMonthSearch(List<Transaction> transactions) {
-        System.out.println("Here are last month's transactions: ");
+        System.out.println("===== Here are last month's transactions ===== ");
         LocalDate todayDate = LocalDate.now();
         LocalDate lastMonth = todayDate.minusMonths(1);
         LocalDate startLastMonth = LocalDate.of(lastMonth.getYear(), lastMonth.getMonth(), 1);
@@ -86,7 +87,7 @@ public class Report {
     }
     // Search by year to date to see all transactions from this year to today
     public static void yearToDateSearch(List<Transaction> transactions) {
-        System.out.println("Here are this year's transactions: ");
+        System.out.println("===== Here are this year's transactions ===== ");
         LocalDate thisYear = LocalDate.now();
         LocalDate firstMonthOfYear = LocalDate.of(thisYear.getYear(), 1, 1);
         List<Transaction> transactionsThisYear = TransactionManager.searchByDate(transactions, firstMonthOfYear, thisYear);
@@ -94,7 +95,7 @@ public class Report {
     }
     // Search by previous year to see all transactions from the previous year
     public static void prevYearSearch(List<Transaction> transactions) {
-        System.out.println("Here are last year's transactions: ");
+        System.out.println("===== Here are last year's transactions ====== ");
         LocalDate thisLastYear = LocalDate.now();
         LocalDate startLastYear = LocalDate.of(thisLastYear.getYear() - 1, 1, 1);
         LocalDate endLastYear = LocalDate.of(thisLastYear.getYear() -1, 12, 31);

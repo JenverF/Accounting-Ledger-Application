@@ -11,24 +11,26 @@ public class Ledger {
         List<Transaction> transactions = TransactionManager.loadTransactions();
         while (true) {
             String options = """
-                    A) All - Display all entries
-                    D) Deposits
-                    P) Payments
-                    R) Reports
-                    H) Home - Go back to home page""";
-            System.out.println("Ledger: \n" + options);
-            String choice = scanner.nextLine().toUpperCase();
+                    Display..
+                        A) All - Display all entries 👀
+                        D) Deposits 🍞
+                        P) Payments 💸
+                        R) Reports 📈
+                        H) Home - Go back to home page
+                    Enter choice (A, D, P, R, H)""";
+            System.out.println("===== Ledger ===== \n" + options);
+            String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
                 case "A":
-                    System.out.println("Here are all the transactions: ");
+                    System.out.println("===== \uD83D\uDCAF Here are all the transactions \uD83D\uDCAF ===== ");
                     TransactionManager.displayEntries(transactions);
                     break;
                 case "D":
-                    System.out.println("Here are all the deposits: ");
+                    System.out.println("===== ➕ Here are all the deposits ➕ ===== ");
                     TransactionManager.filterByAmount(transactions, true);
                     break;
                 case "P":
-                    System.out.println("Here are all the payments: ");
+                    System.out.println("===== ➖ Here are all the payments ➖ ===== ");
                     TransactionManager.filterByAmount(transactions, false);
                     break;
                 case "R":
