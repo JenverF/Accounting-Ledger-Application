@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionManager {
-    // Reads the transaction.csv file and formats it split on the pipe
+    // This method reads every transaction from the transactions.csv file, turns each line into a Transaction object, and returns them all as a list
     public static List<Transaction> loadTransactions() {
         List<Transaction> transactions = new ArrayList<>();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
