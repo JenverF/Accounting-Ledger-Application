@@ -3,8 +3,8 @@
 A Java-based financial application that allows users to record, track, and view their deposits and payments while providing useful reports on finding certain transactions all located in the "transactions.csv" file.
 
 ---
-## Welcome/Display Home Screen: takes Deposits and Payment
-<img width="2594" height="1448" alt="image" src="https://github.com/user-attachments/assets/eead89cb-819b-43bc-8a0b-e3b1de906a49" />
+## Welcome/Display Home Screen: Takes Deposits and Payment
+![homeScreen.png](homeScreen.png)
 
 Features:
 
@@ -14,23 +14,32 @@ Features:
 ---
 
 ---
+## Home Screen Example (Payment)
+![paymentExample.png](paymentExample.png)
+---
+
+---
 ## Ledger Menu Screen: Tracks All Transactions, All Deposits, and All Payments
-<img width="447" height="599" alt="image" src="https://github.com/user-attachments/assets/1d7c6a98-940c-44d9-be4f-d2c8b0036dab" />
-<img width="447" height="601" alt="image" src="https://github.com/user-attachments/assets/7cbe6ff8-3943-4a38-bb9f-7705d48c9ba4" />
+![ledgerScreen.png](ledgerScreen.png)
 
 Features:
-- **All (`A`)** - shows all transactions in the file
+- **All (`A`)** - shows all transactions in the file including total income, expenses, and balance
 - **Deposits (`D`)** - shows all deposits in the file
 - **Payments (`P`)** - shows all payments in the file
 - **Reports (`R`)** — Displays Reports menu with filters for transactions
 ---
 
 ---
-## Report Menu Sceen: Filters Transactions with Date Searches and Vendor Search
-<img width="447" height="530" alt="image" src="https://github.com/user-attachments/assets/8c69769b-20c2-4b97-8b22-61fac48d6b16" />
-<img width="447" height="641" alt="image" src="https://github.com/user-attachments/assets/d29cebe3-7d10-4c8b-868d-3c31ddf32981" />
+## Ledger Display Example (All)
+![allEntries.png](allEntries.png)
+---
+
+---
+## Report Menu Screen: Filters Transactions with Date Searches and Vendor Search
+![reportScreen.png](reportScreen.png)
 
 Features:
+- 1-5 include showing total income, expenses, and balance for that filter
 - **Month to Date (`1`)** - shows all transactions from this month to today
 - **Previous Month (`2`)** - shows all transactions from the previous month
 - **Year to Date (`3`)** - shows all transactions from this year to today
@@ -41,12 +50,34 @@ Features:
 ---
 
 ---
-## Favorite Piece of Code:
-<img width="1878" height="1528" alt="image" src="https://github.com/user-attachments/assets/dc44209b-f112-400c-8329-abdb846f8162" />
-Reason:
+## Report Search Example (Vendor)
+![vendorExample.png](vendorExample.png)
+---
 
-- Visibility in this class is much better than before
-- Cleans up the code so that each case is not a huge chunk of code
+---
+## CSV File:
+![csvFile.png](csvFile.png)
+---
+
+---
+## Interesting Piece of Code:
+``` java
+// Being able to search by dates including month/year to date and previous month/year
+    public static List<Transaction> searchByDate(List<Transaction> transactions, LocalDate start, LocalDate end) {
+        List<Transaction> filteredReports = new ArrayList<>();
+
+        for(Transaction t : transactions) {
+            if((t.getDate().isAfter(start) || t.getDate().isEqual(start)) && (t.getDate().isBefore(end) || t.getDate().isEqual(end))) {
+                filteredReports.add(t); // Includes the first and last days of the month
+            }
+        }
+        return filteredReports;
+    }
+```
+This code shows how I handled showing month/year to date and previous month/year.
+
+In my first attempt, it would not count the first and last days of a month because it was only (t.getDate().isAfter(start) && t.getDate().isBefore(end)) which only included dates between the start and end. But by adding t.getDate().isEqual(start) and t.getDate().isEqual(end), it includes the start and end date now. 
+
 ---
 
 

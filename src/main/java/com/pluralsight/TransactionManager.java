@@ -44,7 +44,7 @@ public class TransactionManager {
         }
     }
 
-    // Displays all the entries in the transactions.csv file
+    // Displays all the entries in the transactions.csv file and shows a Transaction Summary
     public static void displayEntries(List<Transaction> transactions) {
         double totalDeposits = 0;
         double totalPayments = 0;

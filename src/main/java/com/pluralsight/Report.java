@@ -19,7 +19,7 @@ public class Report {
                     5) Vendor 🔍
                     0) Back - Go back to ledger page
                 H) Home - Go back to home page
-                Enter (1, 2, 3, 4, 5, 0, H)""";
+                Enter choice (0-6, H)""";
             System.out.println("===== Report options ===== \n" + options);
             String choice = scanner.nextLine().toUpperCase().trim();
             switch(choice) {
