@@ -42,7 +42,11 @@ Features:
 
 ---
 ## Favorite Piece of Code:
+<img width="1878" height="1528" alt="image" src="https://github.com/user-attachments/assets/dc44209b-f112-400c-8329-abdb846f8162" />
+Reason:
 
+- Visibility in this class is much better than before
+- Cleans up the code so that each case is not a huge chunk of code
 ---
 
 
