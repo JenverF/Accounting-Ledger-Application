@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Report {
     static Scanner scanner = new Scanner(System.in);
-
+    // Display reports screen menu with each option
     public static boolean displayReports() {
         List<Transaction> transactions = TransactionManager.loadTransactions();
         while(true) {

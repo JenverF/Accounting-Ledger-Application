@@ -17,6 +17,7 @@ public class Transaction {
     }
 
     public String toCSV() {
+        // DateTimeFormatter to format the date and time, also formats the amount to round it to the hundredths
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter tf = DateTimeFormatter.ofPattern("HH:mm:ss");
         return "\n" + date.format(dtf) + "|" + time.format(tf) + "|" + description + "|" + vendor + "|" + String.format("%.2f", amount);

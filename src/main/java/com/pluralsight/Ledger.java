@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Ledger {
     static Scanner scanner = new Scanner(System.in);
 
-    // Ledger that displays screen
+    // Display ledger menu screen with each options
     public static void displayLedgerScreen() {
         List<Transaction> transactions = TransactionManager.loadTransactions();
         while (true) {
@@ -32,6 +32,7 @@ public class Ledger {
                     TransactionManager.filterByAmount(transactions, false);
                     break;
                 case "R":
+                    // If user inputs H in report screen menu, it will take the user back to the home screen
                     boolean goHome = Report.displayReports();
                     if(goHome) {
                         return;

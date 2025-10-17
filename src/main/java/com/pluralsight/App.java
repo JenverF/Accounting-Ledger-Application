@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-public class App {
+public class
+App {
     static Scanner scanner = new Scanner(System.in);
 
     static void main() {
@@ -14,6 +15,7 @@ public class App {
         }
 
     }
+    // Display home screen menu with options
     public static boolean displayHomeScreen() {
         String options = """
                 D) Add Deposit
@@ -42,14 +44,16 @@ public class App {
         }
         return false;
     }
-
+    // Transaction method that works with both deposits and payments
     public static void addTransaction(boolean isDeposit) {
+        System.out.println("Welcome! Let's record this transaction: \n");
         System.out.println("Please enter a description: ");
         String description = scanner.nextLine();
 
         System.out.println("Please enter vendor: ");
         String vendor = scanner.nextLine();
 
+        // If user does not input a number, asks to enter an amount again
         boolean isValid = false;
         while(!isValid) {
             System.out.println("Please enter an amount (ex: 100.00): ");
@@ -58,7 +62,10 @@ public class App {
                 scanner.nextLine();
                 isValid = true;
 
-                if (!isDeposit) amount *= -1;
+                // Automatically makes amount positive if user inputs a negative number for deposits, if user enters negative number for payments, number stays negative
+                amount = Math.abs(amount) * (isDeposit ? 1 : -1);
+
+                // Save transaction to transactions.csv file
                 Transaction t = new Transaction(LocalDate.now(), LocalTime.now(), description, vendor, amount);
                 TransactionManager.saveTransaction(t);
                 System.out.println("Transaction saved successfully!");

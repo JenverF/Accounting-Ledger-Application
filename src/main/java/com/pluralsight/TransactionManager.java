@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionManager {
+    // Reads the transaction.csv file and formats it split on the pipe
     public static List<Transaction> loadTransactions() {
         List<Transaction> transactions = new ArrayList<>();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -31,6 +32,7 @@ public class TransactionManager {
         return transactions;
     }
 
+    // Save each transaction to the transactions.csv file
     public static void saveTransaction(Transaction t) {
         try{
             BufferedWriter bw = new BufferedWriter(new FileWriter("files/transactions.csv", true));
@@ -42,12 +44,14 @@ public class TransactionManager {
         }
     }
 
+    // Displays all the entries in the transactions.csv file
     public static void displayEntries(List<Transaction> transactions) {
         for(Transaction t : transactions) {
             System.out.println(t);
         }
     }
 
+    // Works with deposits and payments, if it's a deposit it will save it as a positive number, if it's payment, save it as a negative number
     public static void filterByAmount(List<Transaction> transactions, boolean isPositive) {
         for(Transaction t : transactions) {
             if(isPositive && t.getAmount() > 0) {
@@ -58,6 +62,7 @@ public class TransactionManager {
         }
     }
 
+    // Being able to search by the vendor to look up transactions from that vendor
     public static List<Transaction> searchByVendor(List<Transaction> transactions, String vendor) {
         List<Transaction> filteredReports = new ArrayList<>();
 
@@ -69,12 +74,13 @@ public class TransactionManager {
         return filteredReports;
     }
 
+    // Being able to search by dates including month/year to date and previous month/year
     public static List<Transaction> searchByDate(List<Transaction> transactions, LocalDate start, LocalDate end) {
         List<Transaction> filteredReports = new ArrayList<>();
 
         for(Transaction t : transactions) {
             if((t.getDate().isAfter(start) || t.getDate().isEqual(start)) && (t.getDate().isBefore(end) || t.getDate().isEqual(end))) {
-                filteredReports.add(t);
+                filteredReports.add(t); // Includes the first and last days of the month
             }
         }
         return filteredReports;
