@@ -4,7 +4,7 @@ A Java-based financial application that allows users to record, track, and view 
 
 ---
 ## Welcome/Display Home Screen: Takes Deposits and Payment
-![homeScreen.png](homeScreen.png)
+![homeScreen.png](files/images/homeScreen.png)
 
 Features:
 
@@ -15,12 +15,12 @@ Features:
 
 ---
 ## Home Screen Example (Payment)
-![paymentExample.png](paymentExample.png)
+![paymentExample.png](files/images/paymentExample.png)
 ---
 
 ---
 ## Ledger Menu Screen: Tracks All Transactions, All Deposits, and All Payments
-![ledgerScreen.png](ledgerScreen.png)
+![ledgerScreen.png](files/images/ledgerScreen.png)
 
 Features:
 - **All (`A`)** - shows all transactions in the file including total income, expenses, and balance
@@ -31,12 +31,12 @@ Features:
 
 ---
 ## Ledger Display Example (All)
-![allEntries.png](allEntries.png)
+![allEntries.png](files/images/allEntries.png)
 ---
 
 ---
 ## Report Menu Screen: Filters Transactions with Date Searches and Vendor Search
-![reportScreen.png](reportScreen.png)
+![reportScreen.png](files/images/reportScreen.png)
 
 Features:
 - 1-5 include showing total income, expenses, and balance for that filter
@@ -51,12 +51,12 @@ Features:
 
 ---
 ## Report Search Example (Vendor)
-![vendorExample.png](vendorExample.png)
+![vendorExample.png](files/images/vendorExample.png)
 ---
 
 ---
 ## CSV File:
-![csvFile.png](csvFile.png)
+![csvFile.png](files/images/csvFile.png)
 ---
 
 ---
